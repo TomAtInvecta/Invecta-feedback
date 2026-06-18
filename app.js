@@ -213,11 +213,15 @@ function render(direction) {
     case 'thankyou': renderThankYou(wrap); break;
   }
 
-  // swap with animation
-  const old = stage.firstElementChild;
+  // Swap with animation. Keep exactly one live step: animate the current one
+  // out, and remove any stragglers immediately so steps can never stack up.
+  const existing = Array.from(stage.children);
+  const old = existing.pop();
+  existing.forEach(n => n.remove());
   if (old) {
+    old.classList.remove('step-enter', 'step-enter-down');
     old.classList.add(direction === 'back' ? 'step-exit-down' : 'step-exit-up');
-    old.addEventListener('animationend', () => old.remove(), { once: true });
+    setTimeout(() => old.remove(), 450);
   }
   wrap.classList.add(direction === 'back' ? 'step-enter-down' : 'step-enter');
   stage.appendChild(wrap);
