@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Share your experience of working with Invecta. Your feedback helps us improve the service we provide." />
+  <meta name="theme-color" content="#050830" />
+  <title>Invecta — Share your experience</title>
+
+  <!-- Open Graph (so the shared link previews well) -->
+  <meta property="og:title" content="Invecta — Share your experience" />
+  <meta property="og:description" content="A short, two-minute set of questions. Your feedback helps us improve." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/png" href="assets/invecta-logo-white.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Ambient background: ghost iN watermark + diagonal energy -->
+  <div class="bg" aria-hidden="true">
+    <svg class="bg-watermark" viewBox="0 0 300 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="60" cy="42" r="24" fill="#5CE1E6"/>
+      <rect x="36" y="78" width="48" height="150" fill="#5CE1E6"/>
+      <rect x="102" y="78" width="48" height="150" fill="#5CE1E6"/>
+      <polygon points="102,78 150,78 204,228 156,228" fill="#5CE1E6"/>
+      <rect x="156" y="78" width="48" height="150" fill="#5CE1E6"/>
+    </svg>
+    <span class="bg-glow bg-glow-1"></span>
+    <span class="bg-glow bg-glow-2"></span>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="progress" aria-hidden="true">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+
+  <!-- Brand bar -->
+  <header class="brandbar">
+    <a class="brandbar-logo" href="https://invectagroup.com" target="_blank" rel="noopener" aria-label="Invecta">
+      <img src="assets/invecta-logo-white.png" alt="Invecta" />
+    </a>
+    <span class="brandbar-tag">Securing Talent. Driving Innovation.</span>
+  </header>
+
+  <!-- The form stage: JS renders one step at a time here -->
+  <main class="stage" id="stage" aria-live="polite"></main>
+
+  <!-- Persistent footer navigation (hidden on welcome/thank-you screens) -->
+  <footer class="navbar" id="navbar" hidden>
+    <div class="navbar-inner">
+      <div class="nav-step-controls">
+        <button class="nav-arrow" id="btnPrev" aria-label="Previous question" title="Previous">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="nav-arrow" id="btnNext" aria-label="Next question" title="Next">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+      <button class="btn-ok" id="btnOk">
+        <span id="btnOkLabel">OK</span>
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </button>
+      <span class="nav-hint" id="navHint">press <kbd>Enter</kbd> ↵</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
